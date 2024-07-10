@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA 2</title>
+    <style>
+        body{
+            color: #00c8ff;
+            background-color: #000000;
+            background-repeat: no-repeat;
+            background-image: radial-gradient(rgba(131, 83, 255, 0.664), rgba(67, 36, 143, 0.747), rgb(0, 0, 0)70%);
+            
+        }
+        .main {
+            background-image: radial-gradient(rgba(196, 172, 255, 0.199), rgba(67, 36, 143, 0.747), rgba(0, 0, 0, 0)70%);
+            width: 400px;
+            margin: auto;
+            height: auto;
+            margin: 150px auto;
+            transform: rotate(60deg);
+        }
+        .sector{
+            height: 20px;
+            width: 12px;
+            background: linear-gradient(120deg, #f372ff, #00c8ff);
+            border: 0px solid;
+            border-radius: 25px;
+            display: inline;
+            background-position: center;
+            background-size: 200% 200%;
+            animation: AnimationName 8s ease infinite;
+            box-shadow: 0px 0px 45px 5px rgba(253, 193, 255, 0.623);
+        }
+
+        .section{
+            display: flex;
+            justify-content:space-between;
+        }
+        .connect{
+            content: "aasdsaf";
+            height: 1px;
+            border-style: dotted none none none;
+            border-width: 10px;
+        }
+
+        #i1 #s1, #i1 #s2, #i1 #s3, #i1 .connect, #i1 #s4, #i1 #s5, #i1 #s6,
+        #i2 #s1, #i2 #s2, #i2 #s3, #i2 .connect, #i2 #s4, #i2 #s5, #i2 #s6,
+        #i3 #s1, #i3 #s2, #i3 #s3, #i3 .connect, #i3 #s4, #i3 #s5, #i3 #s6,
+        #i4 #s1, #i4 #s2, #i4 #s3, #i4 .connect, #i4 #s4, #i4 #s5, #i4 #s6,
+        #i5 #s1, #i5 #s2, #i5 #s3, #i5 .connect, #i5 #s4, #i5 #s5, #i5 #s6,
+        #i6 #s1, #i6 #s2, #i6 #s3, #i6 .connect, #i6 #s4, #i6 #s5, #i6 #s6,
+        #i7 #s1, #i7 #s2, #i7 #s3, #i7 .connect, #i7 #s4, #i7 #s5, #i7 #s6,
+        #i8 #s1, #i8 #s2, #i8 #s3, #i8 .connect, #i8 #s4, #i8 #s5, #i8 #s6,
+        #i9 #s1, #i9 #s2, #i9 #s3, #i9 .connect, #i9 #s4, #i9 #s5, #i9 #s6 {
+            animation: rotatesec 2s infinite;
+            /* animation-play-state: paused; */
+            animation-timing-function: linear;
+        }
+
+
+        .sector {animation: rotatesec 1s infinite; animation-timing-function: linear;}
+
+
+
+        #i1 { --base-delay: 0ms;}
+        #i2 { --base-delay: 60ms; }
+        #i3 { --base-delay: 120ms; }
+        #i4 { --base-delay: 180ms; }
+        #i5 { --base-delay: 240ms; }
+        #i6 { --base-delay: 300ms; }
+        #i7 { --base-delay: 360ms; }
+        #i8 { --base-delay: 420ms; }
+        #i9 { --base-delay: 480ms; }
+
+        #s1 { --sec-delay: 0ms; }
+        #s2 { --sec-delay: 10ms; }
+        #s3 { --sec-delay: 20ms; }
+        .connect { --sec-delay: 25ms; }
+        #s4 { --sec-delay: 30ms; }
+        #s5 { --sec-delay: 40ms; }
+        #s6 { --sec-delay: 50ms; }
+        
+
+
+        #i1 #s1, #i1 #s2, #i1 #s3, #i1 .connect, #i1 #s4, #i1 #s5, #i1 #s6,
+        #i2 #s1, #i2 #s2, #i2 #s3, #i2 .connect, #i2 #s4, #i2 #s5, #i2 #s6,
+        #i3 #s1, #i3 #s2, #i3 #s3, #i3 .connect, #i3 #s4, #i3 #s5, #i3 #s6,
+        #i4 #s1, #i4 #s2, #i4 #s3, #i4 .connect, #i4 #s4, #i4 #s5, #i4 #s6,
+        #i5 #s1, #i5 #s2, #i5 #s3, #i5 .connect, #i5 #s4, #i5 #s5, #i5 #s6,
+        #i6 #s1, #i6 #s2, #i6 #s3, #i6 .connect, #i6 #s4, #i6 #s5, #i6 #s6,
+        #i7 #s1, #i7 #s2, #i7 #s3, #i7 .connect, #i7 #s4, #i7 #s5, #i7 #s6,
+        #i8 #s1, #i8 #s2, #i8 #s3, #i8 .connect, #i8 #s4, #i8 #s5, #i8 #s6,
+        #i9 #s1, #i9 #s2, #i9 #s3, #i9 .connect, #i9 #s4, #i9 #s5, #i9 #s6 {
+            animation-delay: calc(var(--sec-delay) + var(--base-delay));
+        
+        }
+
+        #i1 #s1 #ss1, #i1 #s2 #ss2, #i1 #s3 #ss3, #i1 #s4 #ss4, #i1 #s5 #ss5, #i1 #s6 #ss6,
+        #i2 #s1 #ss1, #i2 #s2 #ss2, #i2 #s3 #ss3, #i2 #s4 #ss4, #i2 #s5 #ss5, #i2 #s6 #ss6,
+        #i3 #s1 #ss1, #i3 #s2 #ss2, #i3 #s3 #ss3, #i3 #s4 #ss4, #i3 #s5 #ss5, #i3 #s6 #ss6,
+        #i4 #s1 #ss1, #i4 #s2 #ss2, #i4 #s3 #ss3, #i4 #s4 #ss4, #i4 #s5 #ss5, #i4 #s6 #ss6,
+        #i5 #s1 #ss1, #i5 #s2 #ss2, #i5 #s3 #ss3, #i5 #s4 #ss4, #i5 #s5 #ss5, #i5 #s6 #ss6,
+        #i6 #s1 #ss1, #i6 #s2 #ss2, #i6 #s3 #ss3, #i6 #s4 #ss4, #i6 #s5 #ss5, #i6 #s6 #ss6,
+        #i7 #s1 #ss1, #i7 #s2 #ss2, #i7 #s3 #ss3, #i7 #s4 #ss4, #i7 #s5 #ss5, #i7 #s6 #ss6,
+        #i8 #s1 #ss1, #i8 #s2 #ss2, #i8 #s3 #ss3, #i8 #s4 #ss4, #i8 #s5 #ss5, #i8 #s6 #ss6,
+        #i9 #s1 #ss1, #i9 #s2 #ss2, #i9 #s3 #ss3, #i9 #s4 #ss4, #i9 #s5 #ss5, #i9 #s6 #ss6 {
+            animation: rotatessc 3s infinite;
+            animation-timing-function: linear;
+        }
+
+        @keyframes rotatesec {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(360deg); }
+        }     
+
+        @keyframes wobl {
+            0%, 100% { transform: translateX(0); }
+            35% { transform: translateX(20px); }
+            50% { transform: translateX(0px); }
+            65% { transform: translateX(-20px); }
+        } 
+
+        @keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="gene">
+        <!-- Section Start -->
+            <div id="i1">
+                <div class="section" id ="s1">
+                    <div class="sector" id ="ss1"></div>
+                    <div class="sector" id ="ss1"></div>
+                </div>
+                <div class="section" id ="s2">
+                    <div class="sector" id ="ss2"></div>
+                    <div class="sector" id ="ss2"></div>
+                </div>
+                <div class="section" id ="s3">
+                    <div class="sector" id ="ss3"></div>
+                    <div class="sector" id ="ss3"></div>
+                </div>
+                <div class="connect"></div>
+                <div class="section" id ="s4">
+                    <div class="sector" id ="ss4"></div>
+                    <div class="sector" id ="ss4"></div>
+                </div>
+                <div class="section" id ="s5">
+                    <div class="sector" id ="ss5"></div>
+                    <div class="sector" id ="ss5"></div>
+                </div>
+                <div class="section" id ="s6">
+                    <div class="sector" id ="ss6"></div>
+                    <div class="sector" id ="ss6"></div>
+                </div>
+            </div>
+        <!-- Section End -->
+        <!-- Section Start -->
+            <div id="i2">
+                <div class="section" id ="s1">
+                    <div class="sector" id ="ss1"></div>
+                    <div class="sector" id ="ss1"></div>
+                </div>
+                <div class="section" id ="s2">
+                    <div class="sector" id ="ss2"></div>
+                    <div class="sector" id ="ss2"></div>
+                </div>
+                <div class="section" id ="s3">
+                    <div class="sector" id ="ss3"></div>
+                    <div class="sector" id ="ss3"></div>
+                </div>
+                <div class="connect"></div>
+                <div class="section" id ="s4">
+                    <div class="sector" id ="ss4"></div>
+                    <div class="sector" id ="ss4"></div>
+                </div>
+                <div class="section" id ="s5">
+                    <div class="sector" id ="ss5"></div>
+                    <div class="sector" id ="ss5"></div>
+                </div>
+                <div class="section" id ="s6">
+                    <div class="sector" id ="ss6"></div>
+                    <div class="sector" id ="ss6"></div>
+                </div>
+            </div>
+        <!-- Section End -->
+        <!-- Section Start -->
+            <div id="i3">
+                <div class="section" id="s1">
+                    <div class="sector" id="ss1"></div>
+                    <div class="sector" id="ss1"></div>
+                </div>
+                <div class="section" id="s2">
+                    <div class="sector" id="ss2"></div>
+                    <div class="sector" id="ss2"></div>
+                </div>
+                <div class="section" id="s3">
+                    <div class="sector" id="ss3"></div>
+                    <div class="sector" id="ss3"></div>
+                </div>
+                <div class="connect"></div>
+                <div class="section" id="s4">
+                    <div class="sector" id="ss4"></div>
+                    <div class="sector" id="ss4"></div>
+                </div>
+                <div class="section" id="s5">
+                    <div class="sector" id="ss5"></div>
+                    <div class="sector" id="ss5"></div>
+                </div>
+                <div class="section" id="s6">
+                    <div class="sector" id="ss6"></div>
+                    <div class="sector" id="ss6"></div>
+                </div>
+            </div>
+        <!-- Section End -->
+        <!-- Section Start -->
+            <div id="i4">
+                <div class="section" id="s1">
+                    <div class="sector" id="ss1"></div>
+                    <div class="sector" id="ss1"></div>
+                </div>
+                <div class="section" id="s2">
+                    <div class="sector" id="ss2"></div>
+                    <div class="sector" id="ss2"></div>
+                </div>
+                <div class="section" id="s3">
+                    <div class="sector" id="ss3"></div>
+                    <div class="sector" id="ss3"></div>
+                </div>
+                <div class="connect"></div>
+                <div class="section" id="s4">
+                    <div class="sector" id="ss4"></div>
+                    <div class="sector" id="ss4"></div>
+                </div>
+                <div class="section" id="s5">
+                    <div class="sector" id="ss5"></div>
+                    <div class="sector" id="ss5"></div>
+                </div>
+                <div class="section" id="s6">
+                    <div class="sector" id="ss6"></div>
+                    <div class="sector" id="ss6"></div>
+                </div>
+            </div>
+        <!-- Section End -->
+        <!-- Section Start -->
+            <div id="i5">
+                <div class="section" id="s1">
+                    <div class="sector" id="ss1"></div>
+                    <div class="sector" id="ss1"></div>
+                </div>
+                <div class="section" id="s2">
+                    <div class="sector" id="ss2"></div>
+                    <div class="sector" id="ss2"></div>
+                </div>
+                <div class="section" id="s3">
+                    <div class="sector" id="ss3"></div>
+                    <div class="sector" id="ss3"></div>
+                </div>
+                <div class="connect"></div>
+                <div class="section" id="s4">
+                    <div class="sector" id="ss4"></div>
+                    <div class="sector" id="ss4"></div>
+                </div>
+                <div class="section" id="s5">
+                    <div class="sector" id="ss5"></div>
+                    <div class="sector" id="ss5"></div>
+                </div>
+                <div class="section" id="s6">
+                    <div class="sector" id="ss6"></div>
+                    <div class="sector" id="ss6"></div>
+                </div>
+            </div>
+        <!-- Section End -->
+        <!-- Section Start -->
+            <div id="i6">
+                <div class="section" id="s1">
+                    <div class="sector" id="ss1"></div>
+                    <div class="sector" id="ss1"></div>
+                </div>
+                <div class="section" id="s2">
+                    <div class="sector" id="ss2"></div>
+                    <div class="sector" id="ss2"></div>
+                </div>
+                <div class="section" id="s3">
+                    <div class="sector" id="ss3"></div>
+                    <div class="sector" id="ss3"></div>
+                </div>
+                <div class="connect"></div>
+                <div class="section" id="s4">
+                    <div class="sector" id="ss4"></div>
+                    <div class="sector" id="ss4"></div>
+                </div>
+                <div class="section" id="s5">
+                    <div class="sector" id="ss5"></div>
+                    <div class="sector" id="ss5"></div>
+                </div>
+                <div class="section" id="s6">
+                    <div class="sector" id="ss6"></div>
+                    <div class="sector" id="ss6"></div>
+                </div>
+            </div>
+        <!-- Section End -->
+        <!-- Section Start -->
+            <div id="i7">
+                <div class="section" id="s1">
+                    <div class="sector" id="ss1"></div>
+                    <div class="sector" id="ss1"></div>
+                </div>
+                <div class="section" id="s2">
+                    <div class="sector" id="ss2"></div>
+                    <div class="sector" id="ss2"></div>
+                </div>
+                <div class="section" id="s3">
+                    <div class="sector" id="ss3"></div>
+                    <div class="sector" id="ss3"></div>
+                </div>
+                <div class="connect"></div>
+                <div class="section" id="s4">
+                    <div class="sector" id="ss4"></div>
+                    <div class="sector" id="ss4"></div>
+                </div>
+                <div class="section" id="s5">
+                    <div class="sector" id="ss5"></div>
+                    <div class="sector" id="ss5"></div>
+                </div>
+                <div class="section" id="s6">
+                    <div class="sector" id="ss6"></div>
+                    <div class="sector" id="ss6"></div>
+                </div>
+            </div>
+        <!-- Section End -->
+        <!-- Section Start -->
+            <div id="i8">
+                <div class="section" id="s1">
+                    <div class="sector" id="ss1"></div>
+                    <div class="sector" id="ss1"></div>
+                </div>
+                <div class="section" id="s2">
+                    <div class="sector" id="ss2"></div>
+                    <div class="sector" id="ss2"></div>
+                </div>
+                <div class="section" id="s3">
+                    <div class="sector" id="ss3"></div>
+                    <div class="sector" id="ss3"></div>
+                </div>
+                <div class="connect"></div>
+                <div class="section" id="s4">
+                    <div class="sector" id="ss4"></div>
+                    <div class="sector" id="ss4"></div>
+                </div>
+                <div class="section" id="s5">
+                    <div class="sector" id="ss5"></div>
+                    <div class="sector" id="ss5"></div>
+                </div>
+                <div class="section" id="s6">
+                    <div class="sector" id="ss6"></div>
+                    <div class="sector" id="ss6"></div>
+                </div>
+            </div>
+        <!-- Section End -->
+        <!-- Section Start -->
+            <div id="i9">
+                <div class="section" id="s1">
+                    <div class="sector" id="ss1"></div>
+                    <div class="sector" id="ss1"></div>
+                </div>
+                <div class="section" id="s2">
+                    <div class="sector" id="ss2"></div>
+                    <div class="sector" id="ss2"></div>
+                </div>
+                <div class="section" id="s3">
+                    <div class="sector" id="ss3"></div>
+                    <div class="sector" id="ss3"></div>
+                </div>
+                <div class="connect"></div>
+                <div class="section" id="s4">
+                    <div class="sector" id="ss4"></div>
+                    <div class="sector" id="ss4"></div>
+                </div>
+                <div class="section" id="s5">
+                    <div class="sector" id="ss5"></div>
+                    <div class="sector" id="ss5"></div>
+                </div>
+                <div class="section" id="s6">
+                    <div class="sector" id="ss6"></div>
+                    <div class="sector" id="ss6"></div>
+                </div>
+            </div>
+        <!-- Section End -->
+        </div>
+    </div>
+</body>
+</html>
